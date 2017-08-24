@@ -104,15 +104,21 @@ public class AddlRequestTests_SPEC2_11_Resource implements Portlet, ResourceServ
         /* Details: "The getParameterMap method must return an unmodifiable */
         /* Map object" */
         TestResult tr2 = tcd.getTestResultFailed(V2ADDLREQUESTTESTS_SPEC2_11_RESOURCE_PARAMETERS6);
-        if (portletReq.getParameterMap().containsKey("action")
-            && "V2AddlRequestTests_SPEC2_11_Resource_parameters6"
-                .equals(portletReq.getParameterMap().get("action")[0])) {
+        try {
           String tr2TestStringArray[] = {"Modified Value"};
           portletReq.getParameterMap().put("action", tr2TestStringArray);
-          if ("V2AddlRequestTests_SPEC2_11_Resource_parameters6"
+          // If no exception is thrown
+          if (portletReq.getParameterMap().containsKey("action")
+              && "V2AddlRequestTests_SPEC2_11_Resource_parameters6"
               .equals(portletReq.getParameterMap().get("action")[0])) {
-            tr2.setTcSuccess(true);
+            portletReq.getParameterMap().put("action", tr2TestStringArray);
+            if ("V2AddlRequestTests_SPEC2_11_Resource_parameters6"
+                .equals(portletReq.getParameterMap().get("action")[0])) {
+              tr2.setTcSuccess(true);
+            }
           }
+        } catch (UnsupportedOperationException uoe) {
+          tr2.setTcSuccess(true);
         }
         tr2.writeTo(writer);
       } else if (action.equals("V2AddlRequestTests_SPEC2_11_Resource_parameters17")) {
