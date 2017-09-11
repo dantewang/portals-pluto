@@ -162,16 +162,23 @@ public class AddlRequestTests_SPEC2_11_Render implements Portlet {
         /* Details: "The getParameterMap method must return an unmodifiable */
         /* Map object" */
         TestResult tr6 = tcd.getTestResultFailed(V2ADDLREQUESTTESTS_SPEC2_11_RENDER_PARAMETERS6);
-        if (portletReq.getParameterMap().containsKey("inputval")
-            && "V2AddlRequestTests_SPEC2_11_Render_parameters6"
-                .equals(portletReq.getParameterMap().get("inputval")[0])) {
+        try {
           String tr6TestStringArray[] = {"Modified Value"};
           portletReq.getParameterMap().put("inputval", tr6TestStringArray);
-          if ("V2AddlRequestTests_SPEC2_11_Render_parameters6"
+          // If no exception is thrown
+          if (portletReq.getParameterMap().containsKey("inputval")
+              && "V2AddlRequestTests_SPEC2_11_Render_parameters6"
               .equals(portletReq.getParameterMap().get("inputval")[0])) {
-            tr6.setTcSuccess(true);
-            successTr6 = true;
+            portletReq.getParameterMap().put("inputval", tr6TestStringArray);
+            if ("V2AddlRequestTests_SPEC2_11_Render_parameters6"
+                .equals(portletReq.getParameterMap().get("inputval")[0])) {
+              tr6.setTcSuccess(true);
+              successTr6 = true;
+            }
           }
+        } catch (UnsupportedOperationException uoe) {
+          tr6.setTcSuccess(true);
+          successTr6 = true;
         }
         tr6.writeTo(writer);
       } else if (action.equals("V2AddlRequestTests_SPEC2_11_Render_publicRenderParameters15")) {
