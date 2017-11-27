@@ -89,20 +89,21 @@ public class AddlRequestTests_SPEC2_11_Action implements Portlet {
       /* Details: "The getParameterMap method must return an unmodifiable */
       /* Map object" */
       TestResult tr2 = tcd.getTestResultFailed(V2ADDLREQUESTTESTS_SPEC2_11_ACTION_PARAMETERS6);
-      if (portletReq.getParameterMap().containsKey("inputval")
-          && "V2AddlRequestTests_SPEC2_11_Action_parameters6"
-              .equals(portletReq.getParameterMap().get("inputval")[0])) {
+      try {
         String tr2TestStringArray[] = {"Modified Value"};
-        try {
+        portletReq.getParameterMap().put("inputval", tr2TestStringArray);
+        // If no exception is thrown
+        if (portletReq.getParameterMap().containsKey("inputval")
+            && "V2AddlRequestTests_SPEC2_11_Action_parameters6"
+            .equals(portletReq.getParameterMap().get("inputval")[0])) {
           portletReq.getParameterMap().put("inputval", tr2TestStringArray);
           if ("V2AddlRequestTests_SPEC2_11_Action_parameters6"
               .equals(portletReq.getParameterMap().get("inputval")[0])) {
             tr2.setTcSuccess(true);
           }
         }
-        catch (UnsupportedOperationException e) {
-          tr2.setTcSuccess(true);
-        }
+      } catch (UnsupportedOperationException uoe) {
+        tr2.setTcSuccess(true);
       }
       tr2.writeTo(writer);
     } else if ("V2AddlRequestTests_SPEC2_11_Action_parameters8".equals(action)) {
