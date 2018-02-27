@@ -83,6 +83,27 @@ public class AddlFilterTests_SPEC2_20_Filter
 
   public void init(FilterConfig config) throws PortletException {
     this.config = config;
+
+    String filterName = config.getFilterName();
+
+    /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter12 */
+    /* Details: "A filter class can appear in multiple filter */
+    /* declarations" */
+    if (filterName.equals("AddlFilterTests_SPEC2_20_Filter1")) {
+      AddlFilterTests_SPEC2_20_ActionFilter_TestVariables.actionTr7a_success = true;
+    }
+    if (filterName.equals("AddlFilterTests_SPEC2_20_Filter2")) {
+      AddlFilterTests_SPEC2_20_ActionFilter_TestVariables.actionTr7b_success = true;
+    }
+
+    /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter14 */
+    /* Details: "Filters can be associated with groups of portlets using */
+    /* the '*' character as a wildcard at the end of a string to indicate */
+    /* that the filter must be applied to any portlet whose name starts */
+    /* with the characters before the \"*\" character" */
+    if (filterName.equals("AddlFilterTests_SPEC2_20_Filter3")) {
+      AddlFilterTests_SPEC2_20_ActionFilter_TestVariables.actionTr9_success = true;
+    }
   }
 
   public void doFilter(ActionRequest portletReq, ActionResponse portletResp, FilterChain chain)
@@ -201,18 +222,6 @@ public class AddlFilterTests_SPEC2_20_Filter
       }
     }
 
-    /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter12 */
-    /* Details: "A filter class can appear in multiple filter */
-    /* declarations" */
-    if (portletNameAction != null && portletNameAction.equals("AddlFilterTests_SPEC2_20_Action")
-        && filterName.equals("AddlFilterTests_SPEC2_20_Filter1")) {
-      AddlFilterTests_SPEC2_20_ActionFilter_TestVariables.actionTr7a_success = true;
-    }
-    if (portletNameRender != null && portletNameRender.equals("AddlFilterTests_SPEC2_20_Render")
-        && filterName.equals("AddlFilterTests_SPEC2_20_Filter2")) {
-      AddlFilterTests_SPEC2_20_ActionFilter_TestVariables.actionTr7b_success = true;
-    }
-
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter13 */
     /* Details: "A filter declaration can be mapped to a portlet through */
     /* the deployment descriptor &lt;filter-mapping&gt; element" */
@@ -224,17 +233,6 @@ public class AddlFilterTests_SPEC2_20_Filter
       tr8.appendTcDetail("Filter is not configured for V2AddlFilterTests_SPEC2_20_Action portlet");
     }
     tr8.writeTo(writer);
-
-    /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter14 */
-    /* Details: "Filters can be associated with groups of portlets using */
-    /* the '*' character as a wildcard at the end of a string to indicate */
-    /* that the filter must be applied to any portlet whose name starts */
-    /* with the characters before the \"*\" character" */
-    if (portletNameResource != null
-        && portletNameResource.equals("AddlFilterTests_SPEC2_20_Resource")
-        && filterName.equals("AddlFilterTests_SPEC2_20_Filter3")) {
-      AddlFilterTests_SPEC2_20_ActionFilter_TestVariables.actionTr9_success = true;
-    }
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter15 */
     /* Details: "The order the container uses in building the chain of */
