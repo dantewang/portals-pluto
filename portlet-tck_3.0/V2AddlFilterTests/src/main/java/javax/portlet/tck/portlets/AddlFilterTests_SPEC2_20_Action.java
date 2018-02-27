@@ -17,6 +17,7 @@ package javax.portlet.tck.portlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -76,25 +77,9 @@ public class AddlFilterTests_SPEC2_20_Action implements Portlet {
       throws PortletException, IOException {
     long tid = Thread.currentThread().getId();
     portletReq.setAttribute(THREADID_ATTR, tid);
-  }
 
-  @Override
-  public void render(RenderRequest portletReq, RenderResponse portletResp)
-      throws PortletException, IOException {
-
-    long tid = Thread.currentThread().getId();
-    portletReq.setAttribute(THREADID_ATTR, tid);
-
-    PrintWriter writer = portletResp.getWriter();
+    StringWriter writer = new StringWriter();
     JSR286SpecTestCaseDetails tcd = new JSR286SpecTestCaseDetails();
-
-    PortletSession ps = portletReq.getPortletSession();
-    String msg = (String) ps.getAttribute(RESULT_ATTR_PREFIX + "AddlFilterTests_SPEC2_20_Action",
-        APPLICATION_SCOPE);
-    if (msg != null) {
-      writer.write("<p>" + msg + "</p><br/>\n");
-      ps.removeAttribute(RESULT_ATTR_PREFIX + "AddlFilterTests_SPEC2_20_Action", APPLICATION_SCOPE);
-    }
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter10 */
     /* Details: "For multiple filter declarations for a single filter */
@@ -151,6 +136,35 @@ public class AddlFilterTests_SPEC2_20_Action implements Portlet {
     }
     tr10.writeTo(writer);
 
+    portletReq.getPortletSession().setAttribute(
+        RESULT_ATTR_PREFIX + "AddlFilterTests_SPEC2_20_Action_Phase", writer.toString(),
+        APPLICATION_SCOPE);
+  }
+
+  @Override
+  public void render(RenderRequest portletReq, RenderResponse portletResp)
+      throws PortletException, IOException {
+
+    long tid = Thread.currentThread().getId();
+    portletReq.setAttribute(THREADID_ATTR, tid);
+
+    PrintWriter writer = portletResp.getWriter();
+    JSR286SpecTestCaseDetails tcd = new JSR286SpecTestCaseDetails();
+
+    PortletSession ps = portletReq.getPortletSession();
+    String msg = (String) ps.getAttribute(RESULT_ATTR_PREFIX + "AddlFilterTests_SPEC2_20_Action",
+        APPLICATION_SCOPE);
+    if (msg != null) {
+      writer.write("<p>" + msg + "</p><br/>\n");
+      ps.removeAttribute(RESULT_ATTR_PREFIX + "AddlFilterTests_SPEC2_20_Action", APPLICATION_SCOPE);
+    }
+
+    msg = (String) ps.getAttribute(RESULT_ATTR_PREFIX + "AddlFilterTests_SPEC2_20_Action_Phase",
+        APPLICATION_SCOPE);
+    if (msg != null) {
+      writer.write("<p>" + msg + "</p><br/>\n");
+      ps.removeAttribute(RESULT_ATTR_PREFIX + "AddlFilterTests_SPEC2_20_Action_Phase", APPLICATION_SCOPE);
+    }
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter1 */
     /* Details: "A filter declaration can be configured in the deployment */

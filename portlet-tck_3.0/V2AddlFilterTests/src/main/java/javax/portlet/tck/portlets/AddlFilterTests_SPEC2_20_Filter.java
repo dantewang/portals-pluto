@@ -77,9 +77,21 @@ import static javax.portlet.PortletSession.APPLICATION_SCOPE;
 public class AddlFilterTests_SPEC2_20_Filter
     implements ActionFilter, EventFilter, ResourceFilter, RenderFilter {
 
-  StringWriter initWriter = new StringWriter();
+  FilterConfig config;
 
   public void init(FilterConfig config) throws PortletException {
+    this.config = config;
+  }
+
+  public void doFilter(ActionRequest portletReq, ActionResponse portletResp, FilterChain chain)
+      throws IOException, PortletException {
+
+    portletResp.setRenderParameters(portletReq.getParameterMap());
+    long tid = Thread.currentThread().getId();
+    portletReq.setAttribute(THREADID_ATTR, tid);
+
+    StringWriter writer = new StringWriter();
+
     JSR286SpecTestCaseDetails tcd = new JSR286SpecTestCaseDetails();
     String portletNameAction =
         (String) config.getPortletContext().getAttribute("PortletNameAction");
@@ -88,7 +100,6 @@ public class AddlFilterTests_SPEC2_20_Filter
     String portletNameResource =
         (String) config.getPortletContext().getAttribute("PortletNameResource");
     String filterName = config.getFilterName();
-    initWriter.flush();
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter1 */
     /* Details: "A filter declaration can be configured in the deployment */
@@ -100,7 +111,7 @@ public class AddlFilterTests_SPEC2_20_Filter
     } else {
       tr0.appendTcDetail("Filter is not configured for V2AddlFilterTests_SPEC2_20_Action portlet");
     }
-
+    tr0.writeTo(writer);
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter6 */
     /* Details: "A filter declaration can contain multiple */
@@ -112,7 +123,7 @@ public class AddlFilterTests_SPEC2_20_Filter
     } else {
       tr1.appendTcDetail("Filter is not configured for V2AddlFilterTests_SPEC2_20_Action portlet");
     }
-
+    tr1.writeTo(writer);
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter7 */
     /* Details: "The filter declaration can contain initialization */
@@ -129,6 +140,7 @@ public class AddlFilterTests_SPEC2_20_Filter
     } else {
       tr2.appendTcDetail("Filter is not configured for V2AddlFilterTests_SPEC2_20_Action portlet");
     }
+    tr2.writeTo(writer);
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter8 */
     /* Details: "For each filter declaration, the filter instance must */
@@ -146,6 +158,7 @@ public class AddlFilterTests_SPEC2_20_Filter
     } else {
       tr3.appendTcDetail("Filter is not configured for V2AddlFilterTests_SPEC2_20_Action portlet");
     }
+    tr3.writeTo(writer);
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter9 */
     /* Details: "For each filter declaration, the filter instance must */
@@ -163,6 +176,7 @@ public class AddlFilterTests_SPEC2_20_Filter
     } else {
       tr4.appendTcDetail("Filter is not configured for V2AddlFilterTests_SPEC2_20_Action portlet");
     }
+    tr4.writeTo(writer);
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter10 */
     /* Details: "For multiple filter declarations for a single filter */
@@ -207,6 +221,7 @@ public class AddlFilterTests_SPEC2_20_Filter
     } else {
       tr8.appendTcDetail("Filter is not configured for V2AddlFilterTests_SPEC2_20_Action portlet");
     }
+    tr8.writeTo(writer);
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filter14 */
     /* Details: "Filters can be associated with groups of portlets using */
@@ -228,33 +243,6 @@ public class AddlFilterTests_SPEC2_20_Filter
         && filterName.equals("AddlFilterTests_SPEC2_20_Filter1")) {
       AddlFilterTests_SPEC2_20_ActionFilter_TestVariables.actionTr10a_success = true;
     }
-
-    try {
-      tr0.writeTo(initWriter);
-      tr1.writeTo(initWriter);
-      tr2.writeTo(initWriter);
-      tr3.writeTo(initWriter);
-      tr4.writeTo(initWriter);
-      tr8.writeTo(initWriter);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public void doFilter(ActionRequest portletReq, ActionResponse portletResp, FilterChain chain)
-      throws IOException, PortletException {
-
-    portletResp.setRenderParameters(portletReq.getParameterMap());
-    long tid = Thread.currentThread().getId();
-    portletReq.setAttribute(THREADID_ATTR, tid);
-
-    StringWriter writer = new StringWriter();
-
-    writer.write(initWriter.toString());
-
-    JSR286SpecTestCaseDetails tcd = new JSR286SpecTestCaseDetails();
-
-    // Create result objects for the tests
 
     /* TestCase: V2AddlFilterTests_SPEC2_20_Action_filterWrapper1 */
     /* Details: "An ACTION_PHASE filter can wrap the ActionRequest object */
