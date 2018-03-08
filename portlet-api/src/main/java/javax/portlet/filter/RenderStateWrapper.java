@@ -33,6 +33,7 @@ import javax.portlet.WindowState;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class RenderStateWrapper implements RenderState {
    
@@ -41,6 +42,8 @@ public class RenderStateWrapper implements RenderState {
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the RenderState is null.
+	* 
+	* @since 3.0
     */
    public RenderStateWrapper(RenderState wrapped) {
       if (wrapped == null) {
@@ -51,9 +54,13 @@ public class RenderStateWrapper implements RenderState {
    
 
    /**
+	* <div class="changed_added_3_0">
     * Gets the wrapped object.
-    * 
+    * </div>
+	* 
     * @return the wrapped object.
+	* 
+	* @since 3.0
     */
    public RenderState getWrapped() {
       return wrapped;
@@ -61,10 +68,14 @@ public class RenderStateWrapper implements RenderState {
 
 
    /**
+	* <div class="changed_added_3_0">
     * Sets the wrapped object.
-    * 
+    * </div>
+	* 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the RenderState is null.
+	* 
+	* @since 3.0
     */
    public void setWrapped(RenderState wrapped) {
       if (wrapped == null) {

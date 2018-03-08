@@ -31,12 +31,15 @@ import javax.portlet.MutableActionParameters;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class ActionURLWrapper extends PortletURLWrapper implements ActionURL {
    
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the ActionURL is null.
+	* 
+	* @since 3.0
     */
    public ActionURLWrapper(ActionURL wrapped) {
       super(wrapped);
@@ -44,9 +47,13 @@ public class ActionURLWrapper extends PortletURLWrapper implements ActionURL {
    
 
    /**
+	* <div class="changed_added_3_0">
     * Gets the wrapped object.
-    * 
+    * </div>
+	* 
     * @return the wrapped object.
+	* 
+	* @since 3.0
     */
    public ActionURL getWrapped() {
       return (ActionURL) wrapped;
@@ -54,10 +61,14 @@ public class ActionURLWrapper extends PortletURLWrapper implements ActionURL {
 
 
    /**
+	* <div class="changed_added_3_0">
     * Sets the wrapped object.
-    * 
+    * </div>
+	* 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the ActionURL is null.
+	* 
+	* @since 3.0
     */
    public void setWrapped(ActionURL wrapped) {
       super.setWrapped(wrapped);

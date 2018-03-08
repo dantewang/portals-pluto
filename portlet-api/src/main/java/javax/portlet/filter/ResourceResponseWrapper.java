@@ -102,6 +102,8 @@ public class ResourceResponseWrapper extends MimeResponseWrapper implements Reso
     *  The default behavior of this method is to call 
     * <code>setStatus()</code> on the wrapped response object.
     * </div>
+	* 
+	* @since 3.0
     */
    public void setStatus(int sc) {
       ((ResourceResponse)response).setStatus(sc);

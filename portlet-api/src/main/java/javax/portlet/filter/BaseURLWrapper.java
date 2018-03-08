@@ -35,12 +35,15 @@ import javax.portlet.PortletSecurityException;
  * Methods default to calling through to the wrapped object.
  * </div>
  *
+ * @since 3.0
  */
 public class BaseURLWrapper extends RenderStateWrapper implements BaseURL {
    
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the BaseURL is null.
+	* 
+	* @since 3.0
     */
    public BaseURLWrapper(BaseURL wrapped) {
       super(wrapped);
@@ -48,9 +51,13 @@ public class BaseURLWrapper extends RenderStateWrapper implements BaseURL {
    
 
    /**
+	* <div class="changed_added_3_0">
     * Gets the wrapped object.
-    * 
+    * </div>
+	* 
     * @return the wrapped object.
+	* 
+	* @since 3.0
     */
    @Override
    public BaseURL getWrapped() {
@@ -59,10 +66,14 @@ public class BaseURLWrapper extends RenderStateWrapper implements BaseURL {
 
 
    /**
+	* <div class="changed_added_3_0">
     * Sets the wrapped object.
-    * 
+    * </div>
+	* 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the BaseURL is null.
+	* 
+	* @since 3.0
     */
    public void setWrapped(BaseURL wrapped) {
       if (wrapped == null) {

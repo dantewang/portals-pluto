@@ -51,20 +51,27 @@ package javax.portlet;
  * @see HeaderPortlet
  * @see PortletResponse
  * @see MimeResponse
+ * 
+ * @since 3.0
  */
 public interface HeaderResponse extends MimeResponse {
 
     /**
+	 * <div class="changed_added_3_0">
      * This method sets the title of the portlet.
      * <p>
      * The value can be a text String
-     * 
+     * </div>
+	 * 
      * @param title
      *            portlet title as text String or resource URI
+	 * 
+	 * @since 3.0
      */
     public void setTitle(String title);
 
     /**
+	 * <div class="changed_added_3_0">
      * Sets the MIME type for the header response. The portlet should set the
      * content type before calling {@link #getWriter} or
      * {@link #getPortletOutputStream}.
@@ -75,7 +82,8 @@ public interface HeaderResponse extends MimeResponse {
      * The portlet container will ignore any character encoding
      * specified as part of the content type for <code>render</code>
      * calls.
-     * 
+     * </div>
+	 * 
      * @param type
      *            the content MIME type
      * 
@@ -85,26 +93,37 @@ public interface HeaderResponse extends MimeResponse {
      * 
      * @see PortletRequest#getResponseContentTypes
      * @see #getContentType
+	 * 
+	 * @since 3.0
      */
     public void setContentType(String type);
 
     /**
+	 * <div class="changed_added_3_0">
      * Data written to the <code>HeaderResponse</code> writer is added
      * to the aggregated portal document <code>HEAD</code> section.
      * <p>
      * {@inheritDoc}
+	 * </div>
+	 * 
+	 * @since 3.0
      */
     public java.io.PrintWriter getWriter() throws java.io.IOException;
 
     /**
+	 * <div class="changed_added_3_0">
      * Data written to the <code>HeaderResponse</code> output stream is added
      * to the aggregated portal document <code>HEAD</code> section.
      * <p>
      * {@inheritDoc}
+	 * </div>
+	 * 
+	 * @since 3.0
      */
     public java.io.OutputStream getPortletOutputStream() throws java.io.IOException;
     
     /**
+	 * <div class="changed_added_3_0">
      * Adds a dependency on a page-level resource that is managed by the portal.
      * <p>
      * When a portlet is aggregated onto a page, it may designate resources such as 
@@ -138,7 +157,8 @@ public interface HeaderResponse extends MimeResponse {
      * <p>
      * The manner in which the portal maps the specified name, scope, and version to 
      * specific resources is left to the portal implementation.
-     * 
+     * </div>
+	 * 
      * @param name      the resource name
      * @param scope     the resource scope, may be <code>null</code> or empty
      * @param version   the resource version, may be <code>null</code> or empty
@@ -149,10 +169,13 @@ public interface HeaderResponse extends MimeResponse {
      * 
      * @throws          java.lang.IllegalArgumentException 
      *                    if name is <code>null</code> or empty
+	 * 
+	 * @since 3.0
      */
     public void addDependency(String name, String scope, String version);
     
     /**
+	 * <div class="changed_added_3_0">
      * Adds a dependency on a page-level resource that is managed by the portal
      * and adds a resource for addition to the page for the dependency.
      * <p>
@@ -172,7 +195,8 @@ public interface HeaderResponse extends MimeResponse {
      * portlet on the same page provides a resource with the same name and scope but 
      * a version of 2.1.0, the aggregating portal may choose to include the later
      * version of the resource on the page. 
-     * 
+     * </div>
+	 * 
      * @param name      the resource name
      * @param scope     the resource scope, may be <code>null</code> or empty
      * @param version   the resource version, may be <code>null</code> or empty
@@ -181,7 +205,8 @@ public interface HeaderResponse extends MimeResponse {
      * @throws          java.lang.IllegalArgumentException 
      *                    if name is <code>null</code> or empty
      *                    or if markup does not contain valid tags for the document <code>HEAD</code> section
-     * 
+	 * 
+     * @since 3.0
      */
     public void addDependency(String name, String scope, String version, String markup);
 

@@ -35,26 +35,34 @@ import javax.portlet.HeaderRequest;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
- * @since 2.0
+ * @since 3.0
  * @see HeaderRequest
  */
 public class HeaderRequestWrapper extends RenderRequestWrapper implements HeaderRequest {
     
     /**
+	 * <div class="changed_added_3_0">
      * Creates an <code>HeaderRequest</code> adaptor 
      * wrapping the given request object.
-     * 
+     * </div>
+	 * 
      * @param request  the render request to wrap
      * @throws java.lang.IllegalArgumentException if the request is <code>null</code>
+	 * 
+	 * @since 3.0
      */
     public HeaderRequestWrapper(HeaderRequest request) {
     	super(request);
     }
 
     /**
+	 * <div class="changed_added_3_0">
      * Return the wrapped request object.
-     * 
+     * </div>
+	 * 
      * @return the wrapped request
+	 * 
+	 * @since 3.0
      */
     @Override
     public HeaderRequest getRequest() {
@@ -62,10 +70,14 @@ public class HeaderRequestWrapper extends RenderRequestWrapper implements Header
     }
 
     /**
+	 * <div class="changed_added_3_0">
      * Sets the request object being wrapped.
-     * 
+     * </div>
+	 * 
      * @param request the request to set
      * @throws java.lang.IllegalArgumentException   if the request is null.
+	 * 
+	 * @since 3.0
      */
     public void setRequest(HeaderRequest request) {
        super.setRequest(request);

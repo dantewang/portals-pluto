@@ -49,21 +49,26 @@ import static java.lang.annotation.RetentionPolicy.*;
  * </div>
  *    
  * @see javax.portlet.EventPortlet#processEvent(javax.portlet.EventRequest, javax.portlet.EventResponse) processEvent
- *
+ * 
+ * @since 3.0
  */
 
 @Retention(RUNTIME) @Target({METHOD})
 public @interface EventMethod {
    
    /**
+	* <div class='changed_added_3_0'>
     * The portlet name for the annotated method.
-    * 
+    * </div>
+	* 
     * @return     The portlet name
+	* 
+	* @since 3.0
     */
    String   portletName();
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The processing event QName definitions supported by this method.
     * <p>
     * At least one processing event QName must be specified.
@@ -73,11 +78,13 @@ public @interface EventMethod {
     * @see     PortletQName
     * 
     * @return  The processing event QNames
+	* 
+	* @since 3.0
     */
    PortletQName[]   processingEvents();
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The QName definitions of the events published by this method.
     * </div>
     * 
@@ -85,6 +92,8 @@ public @interface EventMethod {
     * @see     PortletQName
     * 
     * @return  The processing event QNames
+	* 
+	* @since 3.0
     */
    PortletQName[]   publishingEvents() default {};
 }

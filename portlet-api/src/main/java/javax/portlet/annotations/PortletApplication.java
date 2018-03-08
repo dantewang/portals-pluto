@@ -42,35 +42,47 @@ import static java.lang.annotation.RetentionPolicy.*;
  * Values of configuration parameters appearing in the deployment descriptor have 
  * precedence over the corresponding values defined in the annotation.   
  * </div>
+ * 
+ * @since 3.0
  */
 @Retention(RUNTIME) @Target({TYPE})
 public @interface PortletApplication {
    
    /**
+	* <div class='changed_added_3_0'>
     * The portlet API version required by this portlet application.
-    * 
+    * </div>
+	* 
     * @return The portlet API version
+	* 
+	* @since 3.0
     */
    String version() default "3.0";
    
    /**
+	* <div class='changed_added_3_0'>
     * The portlet container runtime options.
-    * 
+    * </div>
+	* 
     * @return     An array of portlet container runtime options
+	* 
+	* @since 3.0
     */
    RuntimeOption[] runtimeOptions() default {};
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The public render parameters used by the portlet.
     * </div>
     * 
     * @return     The array of public render parameters.
+	* 
+	* @since 3.0
     */
    PublicRenderParameterDefinition[]  publicParams() default {};
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The events defined for the portlet.
     * This includes the processing events as well as the publishing events.
     * <p>
@@ -85,11 +97,13 @@ public @interface PortletApplication {
     * @see        EventMethod
     * 
     * @return     The event definitions
+	* 
+	* @since 3.0
     */
    EventDefinition[] events() default {};
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The resource bundle name for this portlet.
     * Name of the resource bundle containing the language specific 
     * portlet information in different languages.
@@ -99,29 +113,35 @@ public @interface PortletApplication {
     * </div>
     * 
     * @return     The resource bundle name
+	* 
+	* @since 3.0
     */
    String   resourceBundle()  default "";
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The custom portlet modes defined for this portlet.
     * </div>
     * 
     * @return     The custom portlet modes
+	* 
+	* @since 3.0
     */
    CustomPortletMode[] customPortletModes() default {};
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The custom window states defined for this portlet.
     * </div>
     * 
     * @return     The custom window states
+	* 
+	* @since 3.0
     */
    CustomWindowState[] customWindowStates() default {};
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The default QName namespace URI.
     * <p>
     * The default namespace URI is used when no namespace URI is specified 
@@ -129,15 +149,19 @@ public @interface PortletApplication {
     * </div>
     * 
     * @return  The default namespace URI.
+	* 
+	* @since 3.0
     */
    String      defaultNamespaceURI() default "";
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The user aattribute declarations. 
     * </div>
     * 
     * @return  The user attribute declarations
+	* 
+	* @since 3.0
     */
    UserAttribute[] userAttributes() default {};
 }

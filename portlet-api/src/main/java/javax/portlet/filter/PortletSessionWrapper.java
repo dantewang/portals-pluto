@@ -34,6 +34,7 @@ import javax.portlet.PortletSession;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class PortletSessionWrapper implements PortletSession {
    
@@ -42,6 +43,8 @@ public class PortletSessionWrapper implements PortletSession {
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the PortletSession is null.
+	* 
+	* @since 3.0
     */
    public PortletSessionWrapper(PortletSession wrapped) {
       if (wrapped == null) {
@@ -52,9 +55,13 @@ public class PortletSessionWrapper implements PortletSession {
    
 
    /**
+	* <div class="changed_added_3_0">
     * Gets the wrapped object.
-    * 
+    * </div>
+	* 
     * @return the wrapped object.
+	* 
+	* @since 3.0
     */
    public PortletSession getWrapped() {
       return wrapped;
@@ -62,10 +69,14 @@ public class PortletSessionWrapper implements PortletSession {
 
 
    /**
+	* <div class="changed_added_3_0">
     * Sets the wrapped object.
-    * 
+    * </div>
+	* 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the PortletSession is null.
+	* 
+	* @since 3.0
     */
    public void setWrapped(PortletSession wrapped) {
       if (wrapped == null) {
