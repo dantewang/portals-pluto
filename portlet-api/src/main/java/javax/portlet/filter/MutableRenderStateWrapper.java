@@ -36,12 +36,15 @@ import javax.portlet.WindowStateException;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class MutableRenderStateWrapper extends RenderStateWrapper implements MutableRenderState, Mutable {
    
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the MutableRenderState is null.
+    * 
+    * @since 3.0
     */
    public MutableRenderStateWrapper(MutableRenderState wrapped) {
       super(wrapped);
@@ -49,9 +52,13 @@ public class MutableRenderStateWrapper extends RenderStateWrapper implements Mut
    
 
    /**
+    * <div class="changed_added_3_0">
     * Gets the wrapped object.
+    * </div>
     * 
     * @return the wrapped object.
+    * 
+    * @since 3.0
     */
    public MutableRenderState getWrapped() {
       return (MutableRenderState) wrapped;
@@ -59,10 +66,14 @@ public class MutableRenderStateWrapper extends RenderStateWrapper implements Mut
 
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the wrapped object.
+    * </div>
     * 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the MutableRenderState is null.
+    * 
+    * @since 3.0
     */
    public void setWrapped(MutableRenderState wrapped) {
       super.setWrapped(wrapped);

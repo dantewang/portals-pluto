@@ -37,12 +37,14 @@ import javax.portlet.PortletRequestDispatcher;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class PortletContextWrapper implements PortletContext {
    
    protected PortletContext wrapped;
    
    /**
+    * @since 3.0
     */
    public PortletContextWrapper(PortletContext wrapped) {
       if (wrapped == null) {
@@ -53,9 +55,13 @@ public class PortletContextWrapper implements PortletContext {
    
 
    /**
+    * <div class="changed_added_3_0">
     * Gets the wrapped object.
+    * </div>
     * 
     * @return the wrapped object.
+    * 
+    * @since 3.0
     */
    public PortletContext getPortletContext() {
       return wrapped;
@@ -63,10 +69,14 @@ public class PortletContextWrapper implements PortletContext {
 
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the wrapped object.
+    * </div>
     * 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the PortletContext is null.
+    * 
+    * @since 3.0
     */
    public void setPortletContext(PortletContext wrapped) {
       if (wrapped == null) {

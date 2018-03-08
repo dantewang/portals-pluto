@@ -31,12 +31,15 @@ import javax.portlet.ResourceParameters;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class ResourceParametersWrapper extends PortletParametersWrapper implements ResourceParameters {
    
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the ResourceParameters is null.
+    * 
+    * @since 3.0
     */
    public ResourceParametersWrapper(ResourceParameters wrapped) {
       super(wrapped);
@@ -44,9 +47,13 @@ public class ResourceParametersWrapper extends PortletParametersWrapper implemen
    
 
    /**
+    * <div class="changed_added_3_0">
     * Gets the wrapped object.
+    * </div>
     * 
     * @return the wrapped object.
+    * 
+    * @since 3.0
     */
    public ResourceParameters getWrapped() {
       return (ResourceParameters) wrapped;
@@ -54,10 +61,14 @@ public class ResourceParametersWrapper extends PortletParametersWrapper implemen
 
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the wrapped object.
+    * </div>
     * 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the ResourceParameters is null.
+    * 
+    * @since 3.0
     */
    public void setWrapped(ResourceParameters wrapped) {
       super.setWrapped(wrapped);

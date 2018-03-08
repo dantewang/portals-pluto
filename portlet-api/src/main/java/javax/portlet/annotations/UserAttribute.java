@@ -37,25 +37,31 @@ import static java.lang.annotation.RetentionPolicy.*;
  * represent a single user attribute.
  * It cannot be used as a stand-alone portlet annotation.
  * </div>
+ * 
+ * @since 3.0
  */
 @Retention(RUNTIME) @Target({ANNOTATION_TYPE})
 public @interface UserAttribute {
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The user attribute name.
     * </div>
     * 
     * @return  The public render parameter identifier
+    * 
+    * @since 3.0
     */
    String      name();
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * Provides locale-specific text describing the user attribute for use by the portal application or by tools.
     * </div>
     * 
     * @return  The user attribute description
+    * 
+    * @since 3.0
     */
    LocaleString[]      description() default {};
 }

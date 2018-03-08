@@ -34,32 +34,44 @@ import javax.servlet.http.Part;
  * interface that can be subclassed by developers.
  * This class implements the Wrapper or Decorator pattern. Methods default to
  * calling through to the wrapped request object. </div>
+ * 
+ * @since 3.0
  */
 public class ClientDataRequestWrapper extends PortletRequestWrapper implements ClientDataRequest {
 
    /**
     * @param request
+    * 
+    * @since 3.0
     */
    public ClientDataRequestWrapper(ClientDataRequest request) {
       super(request);
    }
 
    /**
+    * <div class="changed_added_3_0">
     * Return the wrapped request object.
+    * </div>
     * 
     * @return the wrapped request
+    * 
+    * @since 3.0
     */
    public ClientDataRequest getRequest() {
       return (ClientDataRequest) super.getRequest();
    }
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the request object being wrapped.
+    * </div>
     * 
     * @param request
     *           the request to set
     * @throws java.lang.IllegalArgumentException
     *            if the request is null.
+    * 
+    * @since 3.0
     */
    public void setRequest(ClientDataRequest request) {
       super.setRequest(request);

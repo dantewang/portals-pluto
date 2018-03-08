@@ -37,12 +37,14 @@ import static java.lang.annotation.RetentionPolicy.*;
  * represent a single public render parameter.
  * It cannot be used as a stand-alone portlet annotation.
  * </div>
+ * 
+ * @since 3.0
  */
 @Retention(RUNTIME) @Target({ANNOTATION_TYPE})
 public @interface PublicRenderParameterDefinition {
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The public render parameter identifier.
     * <p>
     * This identifier is used as the public render parameter name in the
@@ -54,11 +56,13 @@ public @interface PublicRenderParameterDefinition {
     * @see     javax.portlet.PortletConfig#getPublicRenderParameterNames() PortletConfig#getPublicRenderParameterNames
     * 
     * @return  The public render parameter identifier
+    * 
+    * @since 3.0
     */
    String      identifier();
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The public render parameter Qname.
     * <p>
     * The public render parameter qname must be unique within the portlet application. 
@@ -68,26 +72,32 @@ public @interface PublicRenderParameterDefinition {
     * @see     <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#QName">Qname definition</a>
     * 
     * @return  The qname
+    * 
+    * @since 3.0
     */
    PortletQName   qname();
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * Provides locale-specific text describing the public render parameter for use by the portal application or by tools.
     * </div>
     * 
     * @return  The public render parameter description
+    * 
+    * @since 3.0
     */
    LocaleString[]      description() default {};
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The display-name type contains a locale-specific short name that is intended to be displayed by tools. 
     * It is used by display-name elements. 
     * The display name need not be unique.
     * </div>
     * 
     * @return  The display name
+    * 
+    * @since 3.0
     */
    LocaleString[]   displayName() default {};
 }

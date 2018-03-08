@@ -30,6 +30,7 @@ import javax.portlet.MutableResourceParameters;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class MutableResourceParametersWrapper extends MutablePortletParametersWrapper implements
       MutableResourceParameters {
@@ -37,6 +38,8 @@ public class MutableResourceParametersWrapper extends MutablePortletParametersWr
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the MutableResourceParameters is null.
+    * 
+    * @since 3.0
     */
    public MutableResourceParametersWrapper(MutableResourceParameters wrapped) {
       super(wrapped);
@@ -44,9 +47,13 @@ public class MutableResourceParametersWrapper extends MutablePortletParametersWr
    
 
    /**
+    * <div class="changed_added_3_0">
     * Gets the wrapped object.
+    * </div>
     * 
     * @return the wrapped object.
+    * 
+    * @since 3.0
     */
    public MutableResourceParameters getWrapped() {
       return (MutableResourceParameters) wrapped;
@@ -54,10 +61,14 @@ public class MutableResourceParametersWrapper extends MutablePortletParametersWr
 
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the wrapped object.
+    * </div>
     * 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the MutableResourceParameters is null.
+    * 
+    * @since 3.0
     */
    public void setWrapped(MutableResourceParameters wrapped) {
       super.setWrapped(wrapped);
