@@ -44,15 +44,19 @@ import javax.portlet.HeaderResponse;
 public interface HeaderFilterChain {
     
     /**
+     * <div class="changed_added_3_0">
      * Causes the next filter in the chain to be invoked, 
      * or if the calling filter is the last filter in the chain, 
      * causes the portlet at the end of the chain to be invoked.
+     * </div>
      * 
      * @param request  the current header request. 
      * @param response  the current header response.
      *  
      * @throws IOException  if an IO error occurred in the filter processing
      * @throws PortletException  if a portlet exception occurred in the filter processing
+     * 
+     * @since 3.0
      */
     public void doFilter(HeaderRequest request, HeaderResponse response)
      throws IOException, PortletException;

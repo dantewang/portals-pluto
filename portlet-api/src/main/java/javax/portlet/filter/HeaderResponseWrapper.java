@@ -26,32 +26,44 @@ import javax.portlet.HeaderResponse;
  * interface that can be subclassed by developers.
  * This class implements the Wrapper or Decorator pattern. Methods default to
  * calling through to the wrapped Response object. </div>
+ * 
+ * @since 3.0
  */
 public class HeaderResponseWrapper extends MimeResponseWrapper implements HeaderResponse {
 
    /**
     * @param response
+    * 
+    * @since 3.0
     */
    public HeaderResponseWrapper(HeaderResponse response) {
       super(response);
    }
 
    /**
+    * <div class="changed_added_3_0">
     * Return the wrapped response object.
+    * </div>
     * 
     * @return the wrapped response
+    * 
+    * @since 3.0
     */
    public HeaderResponse getResponse() {
       return (HeaderResponse) response;
    }
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the response object being wrapped.
+    * </div>
     * 
     * @param response
     *           the response to set
     * @throws java.lang.IllegalArgumentException
     *            if the response is null.
+    * 
+    * @since 3.0
     */
    public void setResponse(HeaderResponse response) {
       super.setResponse(response);

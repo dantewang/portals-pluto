@@ -37,28 +37,42 @@ import static java.lang.annotation.RetentionPolicy.*;
  * represent a single portlet preference.
  * It cannot be used as a stand-alone portlet annotation.
  * </div>
+ * 
+ * @since 3.0
  */
 @Retention(RUNTIME) @Target({ANNOTATION_TYPE})
 public @interface Preference {
    
    /**
+    * <div class='changed_added_3_0'>
     * The preference name.
+    * </div>
     * 
     * @return  The preference name
+    * 
+    * @since 3.0
     */
    String      name();
    
    /**
+    * <div class='changed_added_3_0'>
     * The preference values array.
+    * </div>
     * 
     * @return  The preference values.
+    * 
+    * @since 3.0
     */
    String[]    values();
    
    /**
+    * <div class='changed_added_3_0'>
     * Marks the preference as being read-only.
+    * </div>
     * 
     * @return  The read-only flag
+    * 
+    * @since 3.0
     */
    boolean     isReadOnly() default false;
 }

@@ -57,6 +57,8 @@ public interface HeaderPortlet {
      *                   if the portlet cannot fulfill this request due to security reasons
      * @exception  IOException
      *                   if the streaming causes an I/O problem
+     * 
+     * @since 3.0
      */
     public void renderHeaders (HeaderRequest request, HeaderResponse response) 
         throws PortletException, java.io.IOException;

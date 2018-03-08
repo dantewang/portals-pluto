@@ -90,7 +90,11 @@ public class ActionResponseWrapper extends StateAwareResponseWrapper implements 
    }
 
    /**
+    * <div class="changed_added_3_0">
     * call wrapped object.
+    * </div>
+    * 
+    * @since 3.0
     */
    public RenderURL createRedirectURL(Copy option) throws IllegalStateException {
       return ((ActionResponse)response).createRedirectURL(option);

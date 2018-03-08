@@ -34,6 +34,7 @@ import javax.portlet.ResourceResponse;
  * Methods default to calling through to the wrapped object.
  * </div>
  *
+ * @since 3.0
  */
 public class PortletAsyncContextWrapper implements PortletAsyncContext {
    
@@ -48,6 +49,8 @@ public class PortletAsyncContextWrapper implements PortletAsyncContext {
 
    /**
     * @return the wrapped object
+    * 
+    * @since 3.0
     */
    public PortletAsyncContext getWrapped() {
       return wrapped;
@@ -55,6 +58,8 @@ public class PortletAsyncContextWrapper implements PortletAsyncContext {
 
    /**
     * @param wrapped the wrapped object to set. May not be null.
+    * 
+    * @since 3.0
     */
    public void setWrapped(PortletAsyncContext wrapped) {
       if (wrapped == null) {

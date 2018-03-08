@@ -31,12 +31,15 @@ import javax.portlet.ResourceURL;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class ResourceURLWrapper extends BaseURLWrapper implements ResourceURL {
    
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the ResourceURL is null.
+    * 
+    * @since 3.0
     */
    public ResourceURLWrapper(ResourceURL wrapped) {
       super(wrapped);
@@ -44,9 +47,13 @@ public class ResourceURLWrapper extends BaseURLWrapper implements ResourceURL {
    
 
    /**
+    * <div class="changed_added_3_0">
     * Gets the wrapped object.
+    * </div>
     * 
     * @return the wrapped object.
+    * 
+    * @since 3.0
     */
    public ResourceURL getWrapped() {
       return (ResourceURL) wrapped;
@@ -54,10 +61,14 @@ public class ResourceURLWrapper extends BaseURLWrapper implements ResourceURL {
 
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the wrapped object.
+    * </div>
     * 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the ResourceURL is null.
+    * 
+    * @since 3.0
     */
    public void setWrapped(ResourceURL wrapped) {
       super.setWrapped(wrapped);

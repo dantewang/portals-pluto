@@ -37,12 +37,14 @@ import static java.lang.annotation.RetentionPolicy.*;
  * specify the supported portlet modes and window states for a given content type.
  * It cannot be used as a stand-alone portlet annotation.
  * </div>
+ * 
+ * @since 3.0
  */
 @Retention(RUNTIME) @Target({ANNOTATION_TYPE})
 public @interface Supports {
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * The MIME type for the supported portlet modes and window
     * states listed in this annotation, for example <code>"text{@literal /}html"</code>.
     * <p>
@@ -51,11 +53,13 @@ public @interface Supports {
     * </div>
     * 
     * @return     The MIME type
+    * 
+    * @since 3.0
     */
    String   mimeType() default "text/html";
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * Defines the portlet modes supported by this portlet.
     * <p>
     * The following names represent the standard portlet modes: 
@@ -66,11 +70,13 @@ public @interface Supports {
     * </div>
     * 
     * @return  The supported portlet modes
+    * 
+    * @since 3.0
     */
    String[] portletModes() default {"view"};
    
    /**
-    * <div class='container-change'>
+    * <div class='container-change changed_added_3_0'>
     * Defines the window states supported by this portlet.
     * <p>
     * The following names represent the standard window states: 
@@ -81,6 +87,8 @@ public @interface Supports {
     * </div>
     * 
     * @return  The supported window states
+    * 
+    * @since 3.0
     */
    String[] windowStates() default {"normal", "minimized", "maximized"};
 }
