@@ -31,12 +31,15 @@ import javax.portlet.RenderParameters;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class RenderParametersWrapper extends PortletParametersWrapper implements RenderParameters {
    
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the RenderParameters is null.
+	* 
+	* @since 3.0
     */
    public RenderParametersWrapper(RenderParameters wrapped) {
       super(wrapped);
@@ -44,9 +47,13 @@ public class RenderParametersWrapper extends PortletParametersWrapper implements
    
 
    /**
+	* <div class="changed_added_3_0">
     * Gets the wrapped object.
-    * 
+    * </div>
+	* 
     * @return the wrapped object.
+	* 
+	* @since 3.0
     */
    public RenderParameters getWrapped() {
       return (RenderParameters) wrapped;
@@ -54,10 +61,14 @@ public class RenderParametersWrapper extends PortletParametersWrapper implements
 
 
    /**
+	* <div class="changed_added_3_0">
     * Sets the wrapped object.
-    * 
+    * </div>
+	* 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the RenderParameters is null.
+	* 
+	* @since 3.0
     */
    public void setWrapped(RenderParameters wrapped) {
       super.setWrapped(wrapped);

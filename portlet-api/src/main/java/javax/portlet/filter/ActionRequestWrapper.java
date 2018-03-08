@@ -75,6 +75,8 @@ public class ActionRequestWrapper extends ClientDataRequestWrapper implements Ac
     *  The default behavior of this method is to call 
     * <code>getActionParameters()</code> on the wrapped request object.
     * </div>
+	* 
+	* @since 3.0
     */
    public ActionParameters getActionParameters() {
       return ((ActionRequest)wrapped).getActionParameters();

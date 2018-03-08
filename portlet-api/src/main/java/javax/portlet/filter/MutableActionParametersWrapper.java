@@ -30,12 +30,15 @@ import javax.portlet.MutableActionParameters;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class MutableActionParametersWrapper extends MutablePortletParametersWrapper implements MutableActionParameters {
    
    /**
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the MutableActionParameters is null.
+	* 
+	* @since 3.0
     */
    public MutableActionParametersWrapper(MutableActionParameters wrapped) {
       super(wrapped);
@@ -43,9 +46,13 @@ public class MutableActionParametersWrapper extends MutablePortletParametersWrap
    
 
    /**
+	* <div class="changed_added_3_0">
     * Gets the wrapped object.
-    * 
+    * </div>
+	* 
     * @return the wrapped object.
+	* 
+	* @since 3.0
     */
    public MutableActionParameters getWrapped() {
       return (MutableActionParameters) wrapped;
@@ -53,10 +60,14 @@ public class MutableActionParametersWrapper extends MutablePortletParametersWrap
 
 
    /**
+	* <div class="changed_added_3_0">
     * Sets the wrapped object.
-    * 
+    * </div>
+	* 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the MutableActionParameters is null.
+	* 
+	* @since 3.0
     */
    public void setWrapped(MutableActionParameters wrapped) {
       super.setWrapped(wrapped);
