@@ -81,7 +81,7 @@ public class TCKSimpleTestDriver {
     * @return  a Collection of test cases to run
     */
    @SuppressWarnings("rawtypes")
-   @Parameters
+   @Parameters (name = "{1}")
    public static Collection getTestList () {
       System.out.println("getTestList");
       testFile = System.getProperty("test.list.file");
