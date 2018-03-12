@@ -37,6 +37,7 @@ import javax.portlet.PortletRequestDispatcher;
  * Methods default to calling through to the wrapped request object.
  * </div>
  *
+ * @since 3.0
  */
 public class PortletContextWrapper implements PortletContext {
    
@@ -53,7 +54,9 @@ public class PortletContextWrapper implements PortletContext {
    
 
    /**
+    * <div class="changed_added_3_0">
     * Gets the wrapped object.
+    * </div>
     * 
     * @return the wrapped object.
     */
@@ -63,7 +66,9 @@ public class PortletContextWrapper implements PortletContext {
 
 
    /**
+    * <div class="changed_added_3_0">
     * Sets the wrapped object.
+    * </div>
     * 
     * @param wrapped   the wrapped object to set.
     * @throws java.lang.IllegalArgumentException   if the PortletContext is null.
@@ -235,25 +240,33 @@ public class PortletContextWrapper implements PortletContext {
       return wrapped.getContainerRuntimeOptions();
    }
 
-
+   /* (non-Javadoc)
+    * @see javax.portlet.PortletContext#getEffectiveMajorVersion()
+    */
    @Override
    public int getEffectiveMajorVersion() {
       return wrapped.getEffectiveMajorVersion();
    }
 
-
+   /* (non-Javadoc)
+    * @see javax.portlet.PortletContext#getEffectiveMinorVersion()
+    */
    @Override
    public int getEffectiveMinorVersion() {
       return wrapped.getEffectiveMinorVersion();
    }
 
-
+   /* (non-Javadoc)
+    * @see javax.portlet.PortletContext#getContextPath()
+    */
    @Override
    public String getContextPath() {
       return wrapped.getContextPath();
    }
 
-
+   /* (non-Javadoc)
+    * @see javax.portlet.PortletContext#getClassLoader()
+    */
    @Override
    public ClassLoader getClassLoader() {
       return wrapped.getClassLoader();
