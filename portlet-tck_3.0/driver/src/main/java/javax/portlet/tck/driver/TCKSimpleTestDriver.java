@@ -81,7 +81,7 @@ public class TCKSimpleTestDriver {
     * @return  a Collection of test cases to run
     */
    @SuppressWarnings("rawtypes")
-   @Parameters
+   @Parameters (name = "{1}")
    public static Collection getTestList () {
       System.out.println("getTestList");
       testFile = System.getProperty("test.list.file");
@@ -403,7 +403,9 @@ public class TCKSimpleTestDriver {
          WebElement pwEl = pwels.get(0);
 
          // perform login
+         userEl.clear();
          userEl.sendKeys(username);
+         pwEl.clear();
          pwEl.sendKeys(password);
          pwEl.submit();
 
