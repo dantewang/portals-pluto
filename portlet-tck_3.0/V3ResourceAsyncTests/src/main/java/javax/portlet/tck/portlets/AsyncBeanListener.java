@@ -43,7 +43,7 @@ public class AsyncBeanListener implements PortletAsyncListener {
    
    private ModuleTestCaseDetails tcd = new ModuleTestCaseDetails();
 
-   @Inject private AsyncBean bean;
+   @Inject private AsyncBean bean = AsycBeanFactory.getAsyncBean();
 
    
    public void setTestcase(String tc) {

@@ -46,7 +46,7 @@ import javax.servlet.DispatcherType;
 @PortletLifecycleFilter(portletNames = "ResourceAsyncTests_SPEC_21_Async")
 public class AsyncFilter implements ResourceFilter {
 
-   @Inject private AsyncBean bean;
+   @Inject private AsyncBean bean = AsycBeanFactory.getAsyncBean();
 
    /*
     * (non-Javadoc)

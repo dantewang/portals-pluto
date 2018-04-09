@@ -41,7 +41,7 @@ public class AsyncBeanRunner implements Runnable {
    private PortletAsyncContext pac;
    private String              testcase;
 
-   @Inject private AsyncBean bean;
+   @Inject private AsyncBean bean = AsycBeanFactory.getAsyncBean();
 
    public void init(PortletAsyncContext actx, String testcase) {
       this.pac = actx;

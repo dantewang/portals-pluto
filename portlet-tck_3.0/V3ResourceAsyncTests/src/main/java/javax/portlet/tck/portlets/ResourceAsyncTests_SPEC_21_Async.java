@@ -94,6 +94,7 @@ import java.io.StringWriter;
 import javax.inject.Inject;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.GenericPortlet;
 import javax.portlet.Portlet;
 import javax.portlet.PortletAsyncContext;
 import javax.portlet.PortletAsyncListener;
@@ -126,12 +127,12 @@ import org.slf4j.LoggerFactory;
  */
 
 @PortletConfiguration(portletName = "ResourceAsyncTests_SPEC_21_Async", asyncSupported = true)
-public class ResourceAsyncTests_SPEC_21_Async implements Portlet, ResourceServingPortlet {
+public class ResourceAsyncTests_SPEC_21_Async extends GenericPortlet implements Portlet, ResourceServingPortlet {
    private static final Logger LOGGER = LoggerFactory.getLogger(ResourceAsyncTests_SPEC_21_Async.class.getName());
    
-   @Inject private AsyncBean           bean;
-   @Inject private AsyncBeanRunner     beanRunner;
-   @Inject private AsyncBeanListener   beanListener;
+   @Inject private AsyncBean           bean = AsycBeanFactory.getAsyncBean();
+   @Inject private AsyncBeanRunner     beanRunner = new AsyncBeanRunner();
+   @Inject private AsyncBeanListener   beanListener = new AsyncBeanListener();
 
    @Override
    public void init(PortletConfig config) throws PortletException {

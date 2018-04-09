@@ -30,6 +30,7 @@ import java.io.PrintWriter;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.GenericPortlet;
 import javax.portlet.Portlet;
 import javax.portlet.PortletAsyncContext;
 import javax.portlet.PortletConfig;
@@ -55,7 +56,7 @@ import javax.servlet.DispatcherType;
  */
 
 @PortletConfiguration(portletName = "ResourceAsyncTests_SPEC_21_NoAsync")
-public class ResourceAsyncTests_SPEC_21_NoAsync implements Portlet, ResourceServingPortlet {
+public class ResourceAsyncTests_SPEC_21_NoAsync extends GenericPortlet implements Portlet, ResourceServingPortlet {
    
    @Override
    public void init(PortletConfig config) throws PortletException {
