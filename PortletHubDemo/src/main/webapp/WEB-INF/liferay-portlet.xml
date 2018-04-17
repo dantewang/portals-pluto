@@ -21,19 +21,33 @@
 
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>RenderStateTests_SPEC2_12_RenderState</portlet-name>
+		<portlet-name>PH-ColorSelPortlet</portlet-name>
+		<single-page-application>false</single-page-application>
 		<requires-namespaced-parameters>false</requires-namespaced-parameters>
 	</portlet>
 	<portlet>
-		<portlet-name>RenderStateTests_SPEC2_12_RenderState2</portlet-name>
+		<portlet-name>ImageSelPortlet</portlet-name>
+		<single-page-application>false</single-page-application>
 		<requires-namespaced-parameters>false</requires-namespaced-parameters>
 	</portlet>
 	<portlet>
-		<portlet-name>RenderStateTests_SPEC2_12_MutableRenderState</portlet-name>
+		<portlet-name>MessageBoxPortlet</portlet-name>
+		<single-page-application>false</single-page-application>
 		<requires-namespaced-parameters>false</requires-namespaced-parameters>
 	</portlet>
 	<portlet>
-		<portlet-name>RenderStateTests_SPEC2_12_MutableRenderState2</portlet-name>
+		<portlet-name>ParamTestPortlet</portlet-name>
+		<single-page-application>false</single-page-application>
+		<requires-namespaced-parameters>false</requires-namespaced-parameters>
+	</portlet>
+	<portlet>
+		<portlet-name>PartialActionPortlet</portlet-name>
+		<single-page-application>false</single-page-application>
+		<requires-namespaced-parameters>false</requires-namespaced-parameters>
+	</portlet>
+	<portlet>
+		<portlet-name>PH-ResourcePortlet-PRP</portlet-name>
+		<single-page-application>false</single-page-application>
 		<requires-namespaced-parameters>false</requires-namespaced-parameters>
 	</portlet>
 </liferay-portlet-app>
