@@ -47,4 +47,15 @@
 			<title>V3ResourceAsyncTests_SPEC_21_NoAsync</title>
 		</portlet-info>
 	</portlet>
+
+	<filter>
+		<filter-name>AsyncFilter</filter-name>
+		<filter-class>javax.portlet.tck.portlets.AsyncFilter</filter-class>
+		<lifecycle>RESOURCE_PHASE</lifecycle>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AsyncFilter</filter-name>
+		<portlet-name>V3ResourceAsyncTests_SPEC_21_Async</portlet-name>
+	</filter-mapping>
 </portlet-app>
