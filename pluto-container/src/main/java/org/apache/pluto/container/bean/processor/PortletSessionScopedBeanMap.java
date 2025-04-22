@@ -163,7 +163,7 @@ public class PortletSessionScopedBeanMap implements HttpSessionBindingListener, 
       }
 
       if (bi != null) {
-         beans.remove(bean);
+         beans.remove(id);
          bi.crco.release();
          bean.destroy((T)bi.instance, (CreationalContext<T>)bi.crco);
       }
@@ -172,17 +172,17 @@ public class PortletSessionScopedBeanMap implements HttpSessionBindingListener, 
    /**
     * Session binding listener method - binding to session
     * 
-    * @param arg0
+    * @param evt
     */
    @Override
-   public void valueBound(HttpSessionBindingEvent arg0) {
+   public void valueBound(HttpSessionBindingEvent evt) {
    }
 
    /**
     * Session binding listener method - unbinding from session. 
     * This occurs only when the session times out or is destroyed (in our case).
     * 
-    * @param arg0
+    * @param evt
     */
    @Override
    public void valueUnbound(HttpSessionBindingEvent evt) {
@@ -198,6 +198,25 @@ public class PortletSessionScopedBeanMap implements HttpSessionBindingListener, 
             }
          }
          beans.clear();
+      }
+   }
+
+   public void removeByWindowId(String windowId) {
+
+      if (isTrace) {
+         LOG.trace("Removing beans associated with windowId=" + windowId);
+      }
+
+      synchronized(beans) {
+         for (String curWindowId : beans.keySet()) {
+         	if (curWindowId.equals(windowId)) {
+               Map<Contextual<?>, BeanInstance<?>> beanMap =
+                   beans.get(curWindowId);
+               for (Contextual<?> bean : beanMap.keySet()) {
+                  remove(curWindowId, beanMap, bean);
+               }
+            }
+         }
       }
    }
 }

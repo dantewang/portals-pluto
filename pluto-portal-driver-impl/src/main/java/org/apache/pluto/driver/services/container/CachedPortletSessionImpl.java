@@ -35,6 +35,7 @@ public class CachedPortletSessionImpl extends PortletSessionWrapper implements C
    @Override
    public void invalidate() {
       invalidated = true;
+      CachedPortletSessionUtil.INVALIDATED_SESSIONS.put(getId(), true);
       super.invalidate();
    }
 }

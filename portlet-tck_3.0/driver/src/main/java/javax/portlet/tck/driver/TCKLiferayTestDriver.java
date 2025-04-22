@@ -38,30 +38,13 @@ import static org.junit.Assert.assertTrue;
  *
  */
 @RunWith(value = Parameterized.class)
-public class TCKLiferayTestDriver extends TCKSimpleTestDriver {
+public class TCKLiferayTestDriver extends TCKTestDriver {
 
    private static Properties nonExclusiveTCs = new Properties();
-   private static String baseUrl;
    private static boolean hadToGet = false;
    private static boolean wasExclusive = false;
    private static boolean stillExclusive = false;
    private static boolean exclusive = false;
-
-   private void getBaseUrl() {
-
-      if (baseUrl == null || "".equals(baseUrl)) {
-         StringBuilder sb = new StringBuilder();
-         sb.append("http://");
-         sb.append(host);
-         if (port != null && !port.isEmpty()) {
-            sb.append(":");
-            sb.append(port);
-         }
-         sb.append("/");
-         sb.append(testContextBase);
-         baseUrl = sb.toString();
-      }
-   }
 
    private void getNonExclusiveTCs() {
       String nonExclusiveTCsFile = System.getProperty("test.non.exclusive.file", "");
@@ -83,9 +66,6 @@ public class TCKLiferayTestDriver extends TCKSimpleTestDriver {
 
    public TCKLiferayTestDriver(String p, String t) {
       super(p, t);
-      if (baseUrl == null) {
-         getBaseUrl();
-      }
       if (nonExclusiveTCs.size() == 0) {
          getNonExclusiveTCs();
       }
@@ -95,10 +75,8 @@ public class TCKLiferayTestDriver extends TCKSimpleTestDriver {
 
       String[] tokens = tcName.split("_");
       String liferayWar = "_WAR_tck" + tokens[0];
-
-      String noV = tcName.substring(2);
-      StringBuilder b = new StringBuilder(noV);
-      String portletName = b.substring(0, noV.lastIndexOf("_"));
+      String noV = tcName.replaceFirst("^V[0-9]+", "");
+      String portletName = noV.substring(0, noV.lastIndexOf("_"));
       String portletId =  portletName + liferayWar;
 
       String url = baseUrl +
@@ -188,7 +166,7 @@ public class TCKLiferayTestDriver extends TCKSimpleTestDriver {
          // wait for any async JavaScript tests to complete
          processAsync();
 
-         checkResults(wels);
+         checkResults();
 
       } catch(Exception e) {
 
@@ -202,12 +180,33 @@ public class TCKLiferayTestDriver extends TCKSimpleTestDriver {
             System.out.println(line);
          }
 
-         assertTrue("Test case " + tcName + " failed. " +
-               " Setup link could not be accessed. \nException: " + e.toString(), false);
+         throw new AssertionError("Test case " + tcName + " failed. " +
+                 "\nException: ", e);
       } finally {
 
          wasExclusive = exclusive;
 
       }
+   }
+
+   protected void click(WebElement wel) {
+
+	   boolean sennaJS = true;
+	   String url = null;
+
+	   if (wel != null) {
+          String tagName = wel.getTagName();
+
+	      if ("a".equals(tagName)) {
+             url = wel.getAttribute("href");
+             sennaJS = !url.contains("v3headerportlettests") && !url.contains("v3portlethubtests");
+          }
+	   }
+
+	   if (sennaJS) {
+          wel.click();
+       } else {
+          driver.get(url);
+	   }
    }
 }
