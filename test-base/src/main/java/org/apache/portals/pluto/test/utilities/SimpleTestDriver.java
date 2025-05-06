@@ -152,6 +152,7 @@ public class SimpleTestDriver {
                options.addArguments("--headless");
             }
 
+            options.addArguments("--ignore-certificate-errors");
             options.addArguments("--disable-infobars");
             options.setAcceptInsecureCerts(true);
 
